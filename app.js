@@ -9,7 +9,7 @@ var port = process.env.PORT // define a port in the .env file here and even in t
 var app = express()
 
 // note that the settings for the views and the view engines are done before the view engine is actually installed.
-app.set("views",path.join(__dirname, 'views'))
+app.set("views",path.join(__dirname, 'Views'))
 
 // Special notification that jade is not the same as ejs. Remember that jade currently is known as pug.
 // jade has been renamed to pug.
