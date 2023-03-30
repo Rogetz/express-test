@@ -1,16 +1,17 @@
 // The error I had made initially was to require the connect instead of the express module.
 var express = require("express")
 var indexRoute = require("./routes/Index.js")
+var path = require("path")
 
 var port = 5004
 var app = express()
 
 // note that the settings for the views and the view engines are done before the view engine is actually installed.
-app.set("views","/Views")
+app.set("views",path.join(__dirname, 'views'))
 
 // Special notification that jade is not the same as ejs. Remember that jade currently is known as pug.
 // jade has been renamed to pug.
-app.set("view engine","pug")
+app.set("view engine","ejs")
 app.use(function(req,res,next){
     console.log("added to test nodemon")
     next()
@@ -45,6 +46,9 @@ app.use("/Home/Index",function(req,res,next){
 app.use("/Home",indexRoute.index)
 app.get("Home/Test",function(){
     res.end("Hello to the world")
+})
+app.get("/",function(req,res,next){
+    res.render("home")
 })
 
 /* The app has no inbuilt method called the get function
