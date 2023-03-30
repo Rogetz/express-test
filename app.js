@@ -3,7 +3,9 @@ var express = require("express")
 var indexRoute = require("./routes/Index.js")
 var path = require("path")
 
-var port = 5004
+var port = process.env.Port // define a port in the .env file here and even in the render,
+/// actually the issue with the port is what was causing issues
+
 var app = express()
 
 // note that the settings for the views and the view engines are done before the view engine is actually installed.
